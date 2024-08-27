@@ -4,8 +4,8 @@ if [[ `uname -s` == 'Darwin' ]]; then
     # Mac OS X
     DRAWIO="/Applications/draw.io.app/Contents/MacOS/draw.io"
 else
-    # Linux
-    DRAWIO="drawio"
+    # Linux as "root" user so X will work
+    DRAWIO="drawio --no-sandbox"
 fi
 
 TABS=`xmllint --xpath '//diagram/@name' "${1}" | cut -d'"' -f2`
